@@ -16,7 +16,7 @@
 //{
 //    return 0.0;
 //}
-
+//cout<< "hi"
 mu_3e::mu_3e(const StandardModel& SM_i)
 : ThObservable(SM_i)
 {}
