@@ -33,7 +33,7 @@ NPSMEFTd6Matching::NPSMEFTd6Matching(const NPSMEFTd6 & NPSMEFTd6_i) :
     double ytop = myNPSMEFTd6.getQuarks(QCD::TOP).getMass()/myNPSMEFTd6.v();
     loop_factor = myNPSMEFTd6.getCKM().computelamt_s()*ytop*ytop/(16.*M_PI*M_PI);
     
-    C7NPmu = ((myNPSMEFTd6.v()/myNPSMEFTd6.getMuw())/0.707)*(-0.48*myNPSMEFTd6.getCHeW_12()+0.87*myNPSMEFTd6.getCHeB_12()).; // to be implemented
+    C7NP = ((myNPSMEFTd6.v()/myNPSMEFTd6.getMuw())/0.707)*(-0.48*myNPSMEFTd6.getCHeW_12()+0.87*myNPSMEFTd6.getCHeB_12()).; // to be implemented
     
     StandardModelMatching::updateSMParameters();
     
@@ -49,7 +49,7 @@ NPSMEFTd6Matching::NPSMEFTd6Matching(const NPSMEFTd6 & NPSMEFTd6_i) :
     double ytop = myNPSMEFTd6.getQuarks(QCD::TOP).getMass()/myNPSMEFTd6.v();
     loop_factor = myNPSMEFTd6.getCKM().computelamt_s()*ytop*ytop/(16.*M_PI*M_PI);
     
-    C7NPmu = ((myNPSMEFTd6.v()/myNPSMEFTd6.getTauw())/0.707)*(-0.48*myNPSMEFTd6.getCHeW_13()+0.87*myNPSMEFTd6.getCHeB_13()).; // to be implemented
+    C7NP = ((myNPSMEFTd6.v()/myNPSMEFTd6.getTauw())/0.707)*(-0.48*myNPSMEFTd6.getCHeW_13()+0.87*myNPSMEFTd6.getCHeB_13()).; // to be implemented
     
     StandardModelMatching::updateSMParameters();
     
@@ -65,7 +65,7 @@ NPSMEFTd6Matching::NPSMEFTd6Matching(const NPSMEFTd6 & NPSMEFTd6_i) :
     double ytop = myNPSMEFTd6.getQuarks(QCD::TOP).getMass()/myNPSMEFTd6.v();
     loop_factor = myNPSMEFTd6.getCKM().computelamt_s()*ytop*ytop/(16.*M_PI*M_PI);
     
-    C7NPmu = ((myNPSMEFTd6.v()/myNPSMEFTd6.getTauw())/0.707)*(-0.48*myNPSMEFTd6.getCHeW_23()+0.87*myNPSMEFTd6.getCHeB_23()).; // to be implemented
+    C7NP = ((myNPSMEFTd6.v()/myNPSMEFTd6.getTauw())/0.707)*(-0.48*myNPSMEFTd6.getCHeW_23()+0.87*myNPSMEFTd6.getCHeB_23()).; // to be implemented
     
     StandardModelMatching::updateSMParameters();
     
