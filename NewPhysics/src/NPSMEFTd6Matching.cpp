@@ -27,7 +27,7 @@ NPSMEFTd6Matching::NPSMEFTd6Matching(const NPSMEFTd6 & NPSMEFTd6_i) :
 {
     //mu2eg
      
-    SMEFT_factor = (M_PI/myNPSMEFTd6.getAle())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())/myNPSMEFTd6.getCKM().computelamt_s();
+    // SMEFT_factor = (M_PI/myNPSMEFTd6.getAle())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())/myNPSMEFTd6.getCKM().computelamt_s();
     Muw = myNPSMEFTd6.getMuw(); //mass of muon
     
     double ytop = myNPSMEFTd6.getQuarks(QCD::TOP).getMass()/myNPSMEFTd6.v();
@@ -43,7 +43,7 @@ NPSMEFTd6Matching::NPSMEFTd6Matching(const NPSMEFTd6 & NPSMEFTd6_i) :
 {
     //tau2eg
      
-    SMEFT_factor = (M_PI/myNPSMEFTd6.getAle())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())/myNPSMEFTd6.getCKM().computelamt_s();
+    // SMEFT_factor = (M_PI/myNPSMEFTd6.getAle())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())/myNPSMEFTd6.getCKM().computelamt_s();
     Muw = myNPSMEFTd6.getTauw(); //mass of tau
     
     double ytop = myNPSMEFTd6.getQuarks(QCD::TOP).getMass()/myNPSMEFTd6.v();
@@ -59,13 +59,39 @@ NPSMEFTd6Matching::NPSMEFTd6Matching(const NPSMEFTd6 & NPSMEFTd6_i) :
 {
     //tau2mug
      
-    SMEFT_factor = (M_PI/myNPSMEFTd6.getAle())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())/myNPSMEFTd6.getCKM().computelamt_s();
+    // SMEFT_factor = (M_PI/myNPSMEFTd6.getAle())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())/myNPSMEFTd6.getCKM().computelamt_s();
     Muw = myNPSMEFTd6.getTauw(); //mass of tau
     
     double ytop = myNPSMEFTd6.getQuarks(QCD::TOP).getMass()/myNPSMEFTd6.v();
     loop_factor = myNPSMEFTd6.getCKM().computelamt_s()*ytop*ytop/(16.*M_PI*M_PI);
     
     C7NP = ((myNPSMEFTd6.v()/myNPSMEFTd6.getTauw())/0.707)*(-0.48*myNPSMEFTd6.getCHeW_23()+0.87*myNPSMEFTd6.getCHeB_23()).; // to be implemented
+    
+    StandardModelMatching::updateSMParameters();
+    
+ }
+ 
+ 
+ void NPSMEFTd6Matching::updateNPSMEFTd6Parameters()
+{
+    //muto3e
+     
+    // SMEFT_factor = (M_PI/myNPSMEFTd6.getAle())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())*(myNPSMEFTd6.v()/myNPSMEFTd6.getLambda_NP())/myNPSMEFTd6.getCKM().computelamt_s();
+    // Muw = myNPSMEFTd6.getTauw(); //mass of tau
+    
+    SMEFT_factor = (4.*M_PI*myNPSMEFTd6.getAle())
+     
+    //double ytop = myNPSMEFTd6.getQuarks(QCD::TOP).getMass()/myNPSMEFTd6.v();
+    //loop_factor = myNPSMEFTd6.getCKM().computelamt_s()*ytop*ytop/(16.*M_PI*M_PI);
+    
+    C9NPmu = SMEFT_factor*(myNPSMEFTd6.getCLL_1211()-myNPSMEFTd6.getCLe_1211());
+    C10NPmu = SMEFT_factor*(myNPSMEFTd6.getCLe_1211()-myNPSMEFTd6.getCLL_1211());
+    C9pNPmu = SMEFT_factor*(myNPSMEFTd6.getCee_1211()-myNPSMEFTd6.getCLe_1211());
+    C10pNPmu = SMEFT_factor*(myNPSMEFTd6.getCee_1211()-myNPSMEFTd6.getCLe_1211());
+    CSNPmu = -2*SMEFT_factor*myNPSMEFTd6.getCLe_1211();
+    CSpNPmu = -2*SMEFT_factor*myNPSMEFTd6.getCLe_1211();
+    CPNPmu = 2*SMEFT_factor*myNPSMEFTd6.getCLe_1211();
+    CPpNPmu = 2*SMEFT_factor*myNPSMEFTd6.getCLe_1211();
     
     StandardModelMatching::updateSMParameters();
     
